@@ -14,9 +14,9 @@ class TweetController @Inject()(val controllerComponents: ControllerComponents) 
   }
 
   def show(id: Long) = Action { implicit request: Request[AnyContent] =>
-    val tweet = tweets.find(_.id.get == id) match {
-      case Some(t) => t
+    tweets.find(_.id.exists(_ == id)) match {
+      case Some(tweet) => Ok(views.html.tweet.show(tweet))
+      case None        => NotFound(views.html.error.page404())
     }
-    Ok(views.html.tweet.show(tweet))
   }
 }
