@@ -5,7 +5,9 @@
   <h1>一覧画面です</h1>
   <ul>
     @for(tweet <- tweets) {
-      <li>@tweet.content</li>
+      <li>
+        <a href="@controllers.tweet.routes.TweetController.show(tweet.id.getOrElse(0))">@tweet.content</a>
+      </li>
     }
   </ul>
 }
