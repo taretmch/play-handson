@@ -23,3 +23,5 @@ val form: Form[TweetFormData] = Form(
 ```
 
 みたいに。
+
+- 6.登録ページの作成>表示・テンプレートの調整の`application.conf`でmessagesのディレクトリを指定する部分: "messages/"でなく"messages/messageconf/messages/"あるいは、`messages.ja`を入れる場所が間違っている。
